@@ -1,0 +1,7 @@
+pattern	0+	5+	10+	15+	20+	25+	30+	35+	40+	45+	50+	55+	60+
+DrtBusStop---DrtBusStop	5	6	0	0	0	0	0	0	0	0	0	0	0
+DrtStay---DrtBusStop	2	6	0	0	0	0	0	0	0	0	0	0	0
+home---train08	0	0	7	0	0	0	0	0	0	0	0	0	0
+home---train09	0	0	6	0	0	0	0	0	0	0	0	0	0
+
+average trip duration: 498.25 seconds = 00:08:18
