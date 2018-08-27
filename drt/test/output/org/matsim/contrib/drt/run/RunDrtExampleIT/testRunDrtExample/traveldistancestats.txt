@@ -1,3 +1,0 @@
-ITERATION	avg. EXECUTED	avg. WORST	avg. AVG	avg. BEST
-0	0.0	
-1	0.0	
