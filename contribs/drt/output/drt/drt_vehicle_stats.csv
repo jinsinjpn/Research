@@ -1,0 +1,3 @@
+runId,iteration,vehicles,totalDistance,totalEmptyDistance,emptyRatio,totalRevenueDistance,averageDrivenDistance,averageEmptyDistance,averageRevenueDistance,d_r/d_t,l_det
+null,0,4,49374.55,23750.17,0.48,40006.78,12343.64,5937.54,10001.7,0.81,1.25
+null,1,4,49374.55,23750.17,0.48,40006.78,12343.64,5937.54,10001.7,0.81,1.25
