@@ -107,7 +107,7 @@ class ExperiencedPlansServiceImpl implements ExperiencedPlansService, EventsToLe
 
 
 				if(plan.getPlanElements().get(s) instanceof Leg) {
-					score -= 10;
+					score -= 100;
 				}
 			}
 
@@ -143,7 +143,7 @@ class ExperiencedPlansServiceImpl implements ExperiencedPlansService, EventsToLe
 						double dist = CoordUtils.calcEuclideanDistance(beforecoord, aftercoord);
 
 
-						drtcost = dist*carshare;//0.007423*0.050;//ここの最後にdrtのmonetaryDistanceRateを入れるとgood//ここをcarride入れ替える
+						drtcost = dist*rideshare;//0.007423*0.050;//ここの最後にdrtのmonetaryDistanceRateを入れるとgood//ここをcarride入れ替える
 
 						//System.out.println(drtcost);
 

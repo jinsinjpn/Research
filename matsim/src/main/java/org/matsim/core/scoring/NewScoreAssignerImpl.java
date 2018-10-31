@@ -71,12 +71,12 @@ class NewScoreAssignerImpl implements NewScoreAssigner {
 
 
 				if(plan.getPlanElements().get(s) instanceof Leg) {
-					score -= 10;
+					score -= 100;
 				}
 			}
 
 
-			//carshare
+			/*//carshare
 
 			double carshare = 0.0424*0.050;
 
@@ -101,13 +101,13 @@ class NewScoreAssignerImpl implements NewScoreAssigner {
 						}
 				}
 			}
-			//carshare
+			*///carshare
 
 
 
 
 
-			/*//rideshare
+			//rideshare
 			double rideshare = 0.0424*0.040;
 
 			for(int s = 0; s < plan.getPlanElements().size(); s++) {//全部上条オリジナル//rideshare
@@ -185,12 +185,12 @@ class NewScoreAssignerImpl implements NewScoreAssigner {
 						}
 
 						score -= drtcost;
-						profit += drtcost/0.009761;
+						profit += drtcost/0.0424;
 					}
 
 				}
 			}
-			*///rideshare
+			//rideshare
 
 			/*
 

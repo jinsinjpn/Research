@@ -78,16 +78,16 @@ import org.matsim.vehicles.VehicleType;
 import org.matsim.vehicles.VehicleTypeImpl;
 import org.matsim.vis.otfvis.OTFVisConfigGroup;
 
-public class RunAccessibilityTest_drt {
+public class RunAccessibilityTest_drt_1024 {
 
-	private static final String ROOTDIR = "/Users/jo/git/matsim/contribs/UT_MATSim/resources/Numata_0823/";
+	private static final String ROOTDIR = "/Users/jo/git/matsim/contribs/UT_MATSim/resources/Numata_1014/";
 	private static final String OUTPUTDIR = ROOTDIR + "output";
-	private static final String CONFIGFILE = ROOTDIR + "config_car200.xml";//config_strict.xml config_car200.xml
+	private static final String CONFIGFILE = ROOTDIR + "config_oldcar_1014_str100.xml";//config_strict.xml config_car200.xml
 	private static final String NETWORKFILE = ROOTDIR + "Network.xml";
-	private static final String PLANSFILE = ROOTDIR + "plans_carav_0823.xml";//plans_strict.xml plans_car.xml
+	private static final String PLANSFILE = ROOTDIR + "plans_strict_0823.xml";//plans_strict.xml plans_car.xml
 	private static final String FACILITYFILE = ROOTDIR + "Facility.xml";
 
-	private static final int ITERATIONTIMES = 1;
+	private static final int ITERATIONTIMES = 10;
 
 	private static final String TRANSITSCHEDULEFILE = ROOTDIR + "transitSchedule.xml";
 	private static final String TRANSITVEHICLEFILE = ROOTDIR + "transitVehicles.xml";
@@ -102,12 +102,12 @@ public class RunAccessibilityTest_drt {
 	private static final boolean ACTIVATE_OTFVIS_OR_NOT = false;
 	private static final boolean ACTIVATE_PT_OR_NOT = false;
 	private static final boolean ACTIVATE_PAV_OR_NOT = false;//使わない
-	private static final boolean ACTIVATE_DRT_OR_NOT = true;
-	private static final boolean ACTIVATE_ALLDRT_OR_NOT = true;
+	private static final boolean ACTIVATE_DRT_OR_NOT = false;
+	private static final boolean ACTIVATE_ALLDRT_OR_NOT = false;
 	private static final boolean ACTIVATE_AVAILABILITY_OR_NOT = true;//注意、自動運転ならfalse//今ではどっちもtrue
 	private static final boolean ACTIVATE_ALLPAV_OR_NOT = false;//使わない
-	private static final boolean ACTIVATE_ALLPAV_OR_NOT2 = true;//carをpavと読み換える、drtにも効果あり
-	private static final boolean ACTIVATE_ACCESSIBILITY_OR_NOT = true;
+	private static final boolean ACTIVATE_ALLPAV_OR_NOT2 = false;//carをpavと読み換える、drtにも効果あり
+	private static final boolean ACTIVATE_ACCESSIBILITY_OR_NOT = false;
 
 	static String[] modesChanged2 = { "pav", "walk", "bike" };
 	static String[] modesChanged = { "car", "walk", "bike" };
@@ -149,10 +149,10 @@ public class RunAccessibilityTest_drt {
 		config.qsim().setVehiclesSource(VehiclesSource.modeVehicleTypesFromVehiclesData);
 		config.travelTimeCalculator().setSeparateModes(true);
 		if(allpav_on2) {
-			config.qsim().setFlowCapFactor(0.0269);//下の割る０.８
+			config.qsim().setFlowCapFactor(0.0261);//下の割る０.８
 		}
 		else {
-		config.qsim().setFlowCapFactor(0.0215);
+		config.qsim().setFlowCapFactor(0.0209);
 		}
 
 		// config.qsim().setRemoveStuckVehicles(true);
@@ -564,7 +564,7 @@ public class RunAccessibilityTest_drt {
 		// add innovative modules for SUBPOP1
 		{
 			StrategyConfigGroup.StrategySettings modeChoiceStrategySettings = new StrategyConfigGroup.StrategySettings();
-			modeChoiceStrategySettings.setStrategyName(DefaultPlanStrategiesModule.DefaultStrategy.SubtourModeChoice.toString());
+			modeChoiceStrategySettings.setStrategyName(DefaultPlanStrategiesModule.DefaultStrategy.ChangeTripMode.toString());
 			modeChoiceStrategySettings.setSubpopulation(SUBPOP1_NAME);
 			modeChoiceStrategySettings.setWeight(0.3);
 			scenario.getConfig().strategy().addStrategySettings(modeChoiceStrategySettings);

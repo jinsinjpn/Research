@@ -117,7 +117,7 @@ public class InsertionCostCalculator {
 		//System.out.println(TimeLoss);
 		//System.out.println(rideTime);
 		//System.out.println(totalTimeLoss1);
-		return 0*totalTimeLoss1 + 1*(pickupDetourTimeLoss2 + TimeLoss + rideTime);//かっこの最後は主役の分//αが最初、次にβ
+		return 1*totalTimeLoss1 + 1*(pickupDetourTimeLoss2 + TimeLoss + rideTime);//かっこの最後は主役の分//αが最初、次にβ
 	}
 
 	private double calculateRideTime(DrtRequest drtRequest, VehicleData.Entry vEntry, Insertion insertion) {//全部KAMIJO作成、主役の乗る時間も考慮//こっちが修正したrequsetTOdropofftime

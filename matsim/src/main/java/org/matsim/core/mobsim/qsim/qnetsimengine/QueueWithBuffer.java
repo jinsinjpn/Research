@@ -725,7 +725,7 @@ final class QueueWithBuffer implements QLaneI, SignalizeableItem {
 		double linkTravelTime = this.length / this.linkSpeedCalculator.getMaximumVelocity(veh, qLink.getLink(), now);
 		linkTravelTime = context.qsimConfig.getTimeStepSize() * Math.floor( linkTravelTime / context.qsimConfig.getTimeStepSize() );
 
-		veh.setEarliestLinkExitTime(now + linkTravelTime);//kamijoここに+10と打つと+10秒かかる
+		veh.setEarliestLinkExitTime(now + linkTravelTime +10);//kamijoここに+10と打つと+10秒かかる//oldcar用
 
 		// In theory, one could do something like
 		//		final double discretizedEarliestLinkExitTime = timeStepSize * Math.ceil(veh.getEarliestLinkExitTime()/timeStepSize);

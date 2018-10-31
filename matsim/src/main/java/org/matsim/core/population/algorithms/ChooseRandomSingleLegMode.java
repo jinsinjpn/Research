@@ -66,6 +66,7 @@ public final class ChooseRandomSingleLegMode implements PlanAlgorithm {
 		if (!this.ignoreCarAvailability) {
 			String carAvail = PersonUtils.getCarAvail(plan.getPerson());
 			if ("never".equals(carAvail)) {
+				//System.out.println("true//////////////////////////////////////////////////////////////");//ここは使っていない
 				forbidCar = true;
 			}
 		}

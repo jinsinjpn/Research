@@ -70,18 +70,19 @@ public final class ChooseRandomLegMode implements PlanAlgorithm {
 	private void changeToRandomLegMode(final List<PlanElement> tour, final Plan plan) {
 		if (tour.size() > 1) {
 			boolean forbidCar = false;
-			//boolean forbidBike = false;
+			//System.out.println("true//////////////////////////////////////////////////////////////");
+			boolean forbidBike = false;
 			if (!this.ignoreCarAvailability) {
 				String carAvail = PersonUtils.getCarAvail(plan.getPerson());
-				//String bicycAvail = PersonUtils.getBicycAvail(plan.getPerson());//KAMIJO
+				String bicycAvail = PersonUtils.getBicycAvail(plan.getPerson());//KAMIJO
 				if ("never".equals(carAvail)) {
 					forbidCar = true;
-					//System.out.println("true");
+					//System.out.println("true//////////////");
 				}
-				//if ("never".equals(bicycAvail)) {
-				//	forbidBike = true;
-					//System.out.println("true");
-				//}
+				if ("never".equals(bicycAvail)) {
+					forbidBike = true;
+					//System.out.println("true//////////////////////////");
+				}
 			}
 
 
@@ -94,15 +95,31 @@ public final class ChooseRandomLegMode implements PlanAlgorithm {
 			while (true) {
 				int newModeIdx = chooseModeOtherThan(currentMode);
 				newMode = this.possibleModes[newModeIdx];
+				//System.out.println("len//////////////////////////////////////////////////////////////");
+				//System.out.println(this.possibleModes.length);
+				//System.out.println(newMode);
 				//if (!(forbidBike && TransportMode.bike.equals(newMode))) {
 				//	break;
 				//}
-				if (!(forbidCar && TransportMode.car.equals(newMode))) {
+				if ((forbidCar && TransportMode.car.equals(newMode))==false&&(forbidBike && TransportMode.bike.equals(newMode))==false) {
+					//System.out.println("true//////////////////////////////////////////////////////////////");
+					//System.out.println(forbidCar);
+					//System.out.println(forbidBike);
+					//System.out.println(newMode);
+					//System.out.println("true//////////////////////////////////////////////////////////////");
 					break;
 				} else {
-					if (this.possibleModes.length == 2) {
+					if(forbidCar&&forbidBike) {
+						if (this.possibleModes.length == 3) {//kamijo2から3にした
+							newMode = currentMode; // there is no other mode available
+							break;
+						}
+					}else {
+					//System.out.println("true//////////////////////////////////////////////////////////////");
+					if (this.possibleModes.length == 2) {//kamijo2から3にした
 						newMode = currentMode; // there is no other mode available
 						break;
+					}
 					}
 				}
 			}

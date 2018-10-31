@@ -40,7 +40,7 @@ public class PTPopulationGeneratorWithAvailability {
 		 * Write population to file.
 		 */
 		PopulationWriter populationWriter = new PopulationWriter(scenario.getPopulation(), scenario.getNetwork());
-		populationWriter.write("/Users/jo/Desktop/R_Plans/plans_strict_0823.xml");
+		populationWriter.write("/Users/jo/Desktop/R_Plans/plans_strict_0823_test.xml");
 
 	}
 
@@ -156,7 +156,8 @@ public class PTPopulationGeneratorWithAvailability {
 			/*
 			 *  adding license issues
 			 */
-
+			System.out.println(entry.id_person);
+			System.out.println(entry.strict);
 			if(entry.strict == 0) {
 				person.getAttributes().putAttribute("carAvail","never");
 			}
